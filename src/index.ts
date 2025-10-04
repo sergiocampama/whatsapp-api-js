@@ -917,7 +917,8 @@ export class WhatsAppAPI<EmittersReturnType = void>
         url: string | URL | Request,
         options: RequestInit = {}
     ): Promise<Response> {
-        return this.fetch(url, {
+        const fetch = this.fetch
+        return fetch(url, {
             ...options,
             headers: {
                 Authorization: `Bearer ${this.token}`,
